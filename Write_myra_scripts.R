@@ -84,7 +84,7 @@ string1 <-
 # Define Parameters and Configure Deckware' 
 volume1 <- paste("transferVolume_gene =", transferVolume_gene)
 volume2 <- paste("transferVolume_MM =", transferVolume_MM)
-volume3 <- paste("transferVolume_treatment", transferVolume_treatment)
+volume3 <- paste("transferVolume_treatment =", transferVolume_treatment)
 string2 <-
 '
 def generateOperations():
@@ -125,7 +125,7 @@ for (x in unique(df$gene)) {
 transferA <- character()
 #loop
 for (x in unique(df$gene)) {
-  line3 <- paste('myra.TransferLiquid(', x, ', ', 'plateNode_', x, ', transferVolume_plasmid)', sep = "")
+  line3 <- paste('myra.TransferLiquid(', x, ', ', 'plateNode_', x, ', transferVolume_gene)', sep = "")
   cat(line3, "\n")  # prints nicely for viewer - without quotes and adds newline
   transferA <- c(transferA, line3)  # stores vector
 }
@@ -144,7 +144,7 @@ plateNode = [samplePlate.Well[sample["Well Index"]].AllocateLiquidNode(sample["g
 
 
 # Operations
-myra.TransferLiquid(CF, plateNode, transferVolume_CF, maxTipReuseCount = 1)
+myra.TransferLiquid(CF, plateNode, transferVolume_MM, maxTipReuseCount = 1)
 '
 writeLines(c(string1, volume1, volume2, volume3, string2, Myra_template_MM), "output/2-MyraScript-MM.py", sep = "\n")
 
