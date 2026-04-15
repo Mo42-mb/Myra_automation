@@ -7,7 +7,7 @@ This is a quick and easy way to ensure that you are correctly adding "genes" and
 Steps:
 First, open samples_template.xlsx and resave with your experiment name. 
 Enter your sample information in the "R" sheet. Ignore technical replicates for this. One sample represents all technical replicates.
-Enter your plate set-up in the "map_view" sheet. Include all technical replicates in this map, exaclty how you will place them in your physical plate. 
+Enter your plate set-up in the "map_view" sheet. Include all technical replicates in this map, exactly how you will place them in your physical plate. 
 The locked sheets in this file will ensure your samples are mapped to the correct well of a 384-well Greiner plate.
 
 Next, open "Write_myra_scripts.R"
@@ -15,5 +15,5 @@ Enter all required information as directed by "USER INPUT". This includes updati
 
 Last, run the remaining code in "Write_myra_scripts.R". This will create an "output" sub-directory with a csv file to upload in the BMS Workbench sample tab and python scripts (each for an individual run). After upoading your sample information, copy each generated script into the the scripts tab, saving each as a unique BMS run file.
 
-To troubleshoot, evaluate the samples_template.xlsx and run the "Write_myra_scripts.R" with this sample data.
+To troubleshoot, evaluate the example_samples.xlsx and run the "Write_myra_scripts.R" with this example data.
 
